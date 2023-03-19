@@ -1,0 +1,135 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://tile.tres" type="TileSet" id=1]
+[ext_resource path="res://New folder/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://New folder/money1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://data/status/life_pan.JPG" type="Texture" id=4]
+[ext_resource path="res://New folder/elevator.tscn" type="PackedScene" id=5]
+[ext_resource path="res://New folder/Enemy1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://data/status/h_bar.png" type="Texture" id=7]
+[ext_resource path="res://New folder/Jump_pad.tscn" type="PackedScene" id=8]
+[ext_resource path="res://New folder/script/status.gd" type="Script" id=9]
+[ext_resource path="res://New folder/Enemy2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://New folder/enemy3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://New folder/enemy3_5.tscn" type="PackedScene" id=12]
+[ext_resource path="res://New folder/enemy4.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 10560, -272 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "move"
+length = 16.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 8, 13, 16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 10560, -272 ), Vector2( 10560, 848 ), Vector2( 10560, 848 ), Vector2( 10560, -272 ), Vector2( 10560, -272 ) ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="block" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 1 )
+collision_layer = 2
+collision_mask = 5
+format = 1
+tile_data = PoolIntArray( -1245091, 3, 0, -982947, 3, 0, -720803, 3, 0, -458659, 3, 0, -458500, 536870918, 0, -393171, 6, 0, -262005, 4, 0, -262004, 1, 0, -262000, 1, 0, -261996, 1, 0, -261992, 1, 0, -261988, 1, 0, -261984, 536870916, 0, -261975, 4, 0, -261974, 1, 0, -261970, 1, 0, -261966, 1, 0, -261962, 1, 0, -261958, 1, 0, -261954, 536870916, 0, -261895, 536870918, 0, -261889, 536870918, 0, -196566, 6, 0, -196560, 6, 0, -196531, 536870913, 0, -196527, 536870913, 0, -196523, 536870913, 0, -196519, 536870913, 0, -196515, 2, 0, -196469, 3, 0, -196448, 536870915, 0, -196439, 3, 0, -196418, 536870915, 0, -65290, 536870918, 0, -65284, 536870918, 0, -65278, 536870918, 0, 61, 536870918, 0, 67, 536870918, 0, 65561, 4, 0, 65562, 1, 0, 65566, 1, 0, 65570, 1, 0, 65574, 1, 0, 65578, 1, 0, 65582, 1, 0, 65586, 1, 0, 65590, 1, 0, 65594, 536870916, 0, 65675, 3, 0, 65696, 536870915, 0, 65705, 3, 0, 65726, 536870915, 0, 131097, 7, 0, 131130, 536870915, 0, 131315, 536870918, 0, 131333, 536870918, 0, 196672, 536870918, 0, 196954, 536870918, 0, 196959, 536870918, 0, 327677, 1, 0, 262145, 1, 0, 262149, 1, 0, 262153, 1, 0, 262157, 1, 0, 262161, 1, 0, 262165, 1, 0, 262169, 2, 0, 327810, 4, 0, 327811, 1, 0, 327815, 1, 0, 327819, 2, 0, 327840, 536870915, 0, 327926, 536870918, 0, 327932, 536870918, 0, 327938, 536870918, 0, 327981, 4, 0, 327982, 1, 0, 327986, 1, 0, 327990, 1, 0, 327994, 1, 0, 327998, 536870916, 0, 393274, 536870915, 0, 393277, 536870918, 0, 393283, 536870918, 0, 393346, 3, 0, 393517, 3, 0, 524537, 536870918, 0, 524543, 536870918, 0, 589888, 536870918, 0, 589984, 536870915, 0, 655418, 536870915, 0, 655490, 3, 0, 655661, 3, 0, 721104, 4, 0, 721105, 1, 0, 721109, 1, 0, 721113, 1, 0, 721117, 1, 0, 786493, 536870918, 0, 786499, 536870918, 0, 786640, 7, 0, 852051, 536870912, 0, 852057, 536870912, 0, 852058, 4, 0, 852059, 1, 0, 852063, 1, 0, 852067, 536870916, 0, 852309, 536870912, 0, 852315, 536870912, 0, 852321, 536870912, 0 )
+
+[node name="ground" type="TileMap" parent="."]
+z_index = -2
+tile_set = ExtResource( 1 )
+collision_layer = 2
+collision_mask = 5
+format = 1
+tile_data = PoolIntArray( 196929, 536870918, 0, 196934, 536870918, 0, 196939, 536870918, 0, 196944, 536870918, 0, 196949, 536870918, 0, 393534, 536870915, 0, 655678, 536870915, 0, 721148, 536870918, 0, 852015, 536870912, 0, 852021, 536870912, 0, 852027, 536870912, 0, 852033, 536870912, 0, 852039, 536870912, 0, 852045, 536870912, 0, 852063, 0, 0, 852069, 0, 0, 852075, 0, 0, 852081, 0, 0, 852087, 0, 0, 852093, 0, 0, 852099, 536870912, 0, 852105, 536870912, 0, 852111, 536870912, 0, 852117, 536870912, 0, 852123, 536870912, 0, 852129, 536870912, 0, 852135, 536870912, 0, 852141, 536870912, 0, 852147, 536870912, 0, 852153, 536870912, 0, 852159, 536870912, 0, 852165, 536870912, 0, 852171, 536870912, 0, 852177, 536870912, 0, 852183, 536870912, 0, 852189, 536870912, 0, 852195, 536870912, 0, 852201, 536870912, 0, 852207, 536870912, 0, 852213, 536870912, 0, 852219, 536870912, 0, 852225, 536870912, 0, 852231, 536870912, 0, 852237, 536870912, 0, 852243, 536870912, 0, 852249, 536870912, 0, 852255, 536870912, 0, 852261, 536870912, 0, 852267, 536870912, 0, 852273, 536870912, 0, 852279, 536870912, 0, 852285, 536870912, 0, 852291, 536870912, 0, 852297, 536870912, 0, 852303, 536870912, 0 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8352, 200 )
+
+[node name="status" type="Control" parent="player"]
+margin_left = -512.0
+margin_top = 88.0
+margin_right = 40.0
+margin_bottom = 296.0
+script = ExtResource( 9 )
+
+[node name="status" type="Sprite" parent="player/status"]
+position = Vector2( 168, 152 )
+texture = ExtResource( 4 )
+
+[node name="health_bar" type="TextureProgress" parent="player/status"]
+margin_left = 96.0
+margin_top = 176.0
+margin_right = 468.0
+margin_bottom = 216.0
+rect_scale = Vector2( 0.4, 1 )
+max_value = 20.0
+value = 20.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 7 )
+tint_progress = Color( 0, 1, 0.109804, 1 )
+
+[node name="jump_pad" type="Node2D" parent="."]
+
+[node name="Jump_pad" parent="jump_pad" instance=ExtResource( 8 )]
+position = Vector2( 8832, 288 )
+jump_h = 500
+jump_pad_time = 4
+
+[node name="money" type="Node2D" parent="."]
+
+[node name="money1" parent="money" instance=ExtResource( 3 )]
+position = Vector2( 560, 72 )
+
+[node name="moving platform" type="Node2D" parent="."]
+
+[node name="elevator" parent="moving platform" instance=ExtResource( 5 )]
+position = Vector2( 10560, -272 )
+
+[node name="play" type="AnimationPlayer" parent="moving platform/elevator"]
+anims/RESET = SubResource( 1 )
+anims/move = SubResource( 2 )
+
+[node name="enemy" type="Node2D" parent="."]
+
+[node name="Enemy1" parent="enemy" instance=ExtResource( 6 )]
+position = Vector2( 2784, -208 )
+
+[node name="Enemy2" parent="enemy" instance=ExtResource( 10 )]
+position = Vector2( 2016, 48 )
+
+[node name="enemy3" parent="enemy" instance=ExtResource( 11 )]
+position = Vector2( 2280, -56 )
+speed = 400.0
+
+[node name="Area2D" parent="enemy" instance=ExtResource( 12 )]
+position = Vector2( 3720, -32 )
+
+[node name="Area2D2" parent="enemy" instance=ExtResource( 12 )]
+position = Vector2( 1640, -32 )
+
+[node name="enemy4" parent="enemy" instance=ExtResource( 13 )]
+position = Vector2( 2880, 32 )
+
+[connection signal="health_updated" from="player" to="player/status" method="_on_player_health_updated"]

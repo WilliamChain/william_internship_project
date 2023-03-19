@@ -1,0 +1,140 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://data/tile/MergedImages.jpg" type="Texture" id=1]
+[ext_resource path="res://data/tile/sand0.jpg" type="Texture" id=2]
+[ext_resource path="res://data/tile/up_side_joint.jpg" type="Texture" id=3]
+[ext_resource path="res://data/tile/MergedImages (2).jpg" type="Texture" id=4]
+[ext_resource path="res://data/tile/lift.jpg" type="Texture" id=5]
+[ext_resource path="res://data/tile/up_side.jpg" type="Texture" id=6]
+[ext_resource path="res://data/tile/plate.jpg" type="Texture" id=7]
+[ext_resource path="res://data/tile/MergedImages (3).jpg" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 192, 76 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 128, 16.4 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 25.6 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 32, 96 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 32, 48 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 128, 20 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 104, 12 )
+
+[node name="tile" type="Node2D"]
+position = Vector2( 1, 0 )
+
+[node name="sand" type="Sprite" parent="."]
+position = Vector2( -240, -136 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="sand"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sand/StaticBody2D"]
+position = Vector2( 0, 68 )
+shape = SubResource( 1 )
+
+[node name="tab1" type="Sprite" parent="."]
+position = Vector2( -96, 192 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tab1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tab1/StaticBody2D"]
+position = Vector2( 0, 8.39999 )
+shape = SubResource( 2 )
+
+[node name="tab2" type="Sprite" parent="."]
+position = Vector2( 352, -8 )
+scale = Vector2( 1, 1.25 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tab2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tab2/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="tab3" type="Sprite" parent="."]
+position = Vector2( 248, -16 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tab3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tab3/StaticBody2D"]
+shape = SubResource( 7 )
+
+[node name="tab4" type="Sprite" parent="."]
+position = Vector2( 72, 200 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tab4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tab4/StaticBody2D"]
+position = Vector2( 0, 8 )
+shape = SubResource( 5 )
+
+[node name="tab5" type="Sprite" parent="."]
+position = Vector2( 31, -16 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tab5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tab5/StaticBody2D"]
+shape = SubResource( 9 )
+
+[node name="elevator" type="Sprite" parent="."]
+position = Vector2( 392, 144 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="elevator"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="elevator/StaticBody2D"]
+position = Vector2( 0, 20 )
+shape = SubResource( 6 )
+
+[node name="plate" type="Sprite" parent="."]
+position = Vector2( 880, 8 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="plate"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plate/StaticBody2D"]
+position = Vector2( 0, 12 )
+shape = SubResource( 8 )
+one_way_collision = true
